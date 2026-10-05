@@ -15,6 +15,8 @@ This project demonstrates basic MLOps practices using Python, Pytest, Unittest, 
 │   └── workflows/
 │       ├── pytest_action.yml
 │       └── unittest_action.yml
+├──data/
+    └── __init__.py
 ├── requirements.txt
 └── README.md
 ```
