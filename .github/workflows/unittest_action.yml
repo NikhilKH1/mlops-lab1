@@ -24,6 +24,30 @@ jobs:
     - name: Run unittests
       run: python -m unittest test.test_unittest
 
+    # Install coverage tool
+    - name: Install coverage
+      run: pip install coverage
+
+    # Run unittests with code coverage
+    - name: Generate unittest coverage report
+      run: coverage run -m unittest test.test_unittest
+
+    # Display coverage in GitHub Actions logs
+    - name: Display coverage report
+      run: coverage report -m
+
+    # Generate HTML coverage report
+    - name: Generate HTML coverage report
+      run: coverage html
+
+    # Upload coverage report
+    - name: Upload unittest coverage report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: unittest-coverage-report
+        path: htmlcov/
+
     - name: Notify on success
       if: success()
       run: echo "Unit tests passed successfully"
