@@ -44,18 +44,26 @@ def fun3(x, y):
         raise ValueError("Both inputs must be numbers.")
     return x * y
 
-def fun4(x,y,z):
+def fun4(x, y, z):
     """
     Adds three numbers together.
+
     Args:
         x (int/float): First number.
         y (int/float): Second number.
         z (int/float): Third number.
+
     Returns:
         int/float: Sum of x, y and z.
+
+    Raises:
+        ValueError: If x, y, or z is not a number.
     """
-    total_sum = x + y + z
-    return total_sum
+
+    if not all(isinstance(value, (int, float)) for value in (x, y, z)):
+        raise ValueError("All inputs must be numbers.")
+
+    return x + y + z
 
 def fun5(x, y):
     """
